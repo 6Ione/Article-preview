@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Article preview component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body {
+      background-color: hsl(210, 46%, 95%);
+      font-family: 'Manrope', serif;
+      font-size: 13px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    .cardImage {
+      flex: 0 0 420px;
+      overflow: hidden;
+    }
+
+    .cardImage img {
+      display: block;
+      border-radius: 8px 0 0 8px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card {
+      background-color: white;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 0 10px rbg(0, 0, 0.2);
+      padding: 2rem;
+    }
+
+    .cardContent h1 {
+      color: hsl(217, 19%, 35%);
+    }
+    .cardContent p {
+      color: hsl(214, 17%, 51%);
+      font-weight: 600;
+    }
+
+    .author {
+      display: flex;
+      position: relative;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+    .author img{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    .authorInfo p {
+      margin: 0;
+      color: hsl(217, 19%, 35%);;
+      font-weight: 700;
+    }
+    .authorInfo span {
+      color: hsl(212, 23%, 69%);
+    }
+
+    .shareBtn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background-color: hsl(210, 46%, 95%);
+      color: hsl(214, 17%, 51%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-left: auto;
+    }
+    .shareBtn img {
+      width: 15px;
+      height: 15px;
+    }
+    .shareBtn:hover {
+      background-color: hsl(220, 2%, 52%);
+      color: white;
+    }
+
+    .sharePopup {
+      position: absolute;
+      bottom: 70px;
+      right: -70px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      background: hsl(217,19%,35%);
+      padding: 0 24px;
+      border-radius: 10px;
+      opacity: 0;
+      visibility: hidden;
+      transition: .3s;
+
+      width: 220px;
+      height: 55px;
+    }
+    .sharePopup span {
+      color: hsl(210, 2%, 62%);
+    }
+    .sharePopup img {
+      width: 20px;
+      height: 20px;
+    }
+    .sharePopup::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      background: hsl(217,19%,35%);
+      transform: translateX(-50%) rotate(45deg);
+    }
+    .sharePopup.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 1.5rem;
+      }
+
+      .card {
+        border-radius: 0 0 10px 10px;
+        padding: 1.5rem;
+      }
+
+      .cardImage {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .cardImage img {
+        height: 220px;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        max-width: 100%;
+      }
+
+      .cardContent h1 {
+        font-size: 1.2rem;
+        line-height: 1.4;
+      }
+
+      .cardContent p {
+        line-height: 1.6;
+      }
+
+      .author {
+        margin-top: 1.25rem;
+      }
+
+      .shareBtn {
+        width: 36px;
+        height: 36px;
+      }
+
+      .sharePopup {
+        position: absolute;
+        inset: 0;
+        border-radius: 0 0 10px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="cardImage">
+        <img src="./images/drawers.jpg" alt="green drawers with a vase and framed art">
+      </div>
+      <div class="card">
+
+        <div class="cardContent">
+          <h1>Shift the overall look and feel by<br> adding these wonderful touches to<br> furniture in your home</h1>
+          <p>Ever been in a room and felt like something was missing?<br> Perhaps it felt slightly bare and uninviting. I’ve got some<br> simple tips to help you make any room feel complete.</p>
+        </div>
+
+        <div class="author">
+          <div class="authorImage">
+            <img src="./images/avatar-michelle.jpg" alt="avatar michelle">
+          </div>
+
+          <div class="authorInfo">
+            <p>Michelle Appleton</p>
+            <span>28 Jun 2020</span>
+          </div>
+
+          <button class="shareBtn">
+            <img src="./images/icon-share.svg" alt="share icon">
+          </button>
+          
+          <div class="sharePopup">
+            <span>SHARE</span>
+            <a href="#">
+              <img src="./images/icon-facebook.svg">
+            </a>
+
+            <a href="#">
+              <img src="./images/icon-twitter.svg">
+            </a>
+
+            <a href="#">
+              <img src="./images/icon-pinterest.svg">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+    Coded by <a href="#">Capo</a>.
+  </footer>
+</body>
+<script src="./js/script.js"></script>
+</html>
